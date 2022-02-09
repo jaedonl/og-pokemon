@@ -1,0 +1,18 @@
+.header {
+    text-align: center;
+    padding: 25px 0;
+    background-color: #f00000;
+    border-bottom: 20px solid #222224;
+    position: relative;
+
+    h1 {
+        color: #fff;
+        font-weight: 600;
+        font-size: 42px;
+    }
+
+    .round {
+        border-radius: 50%;
+        background-color: #fff;
+    }
+}
