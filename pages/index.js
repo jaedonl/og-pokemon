@@ -2,8 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import Body from '../components/Body'
+import axios from 'axios'
 
-export default function Home() {
+const Home = ({pokemon, initial}) => {
   return (
     <div className={styles.home}>
       <Head>
@@ -13,8 +14,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Body/>
-
+      <Body pokemon={pokemon} initial={initial} />
     </div>
-  )
+  )  
 }
+
+export const getServerSideProps = async () => {
+  const res =     await axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=50')
+  const res2 = await axios.get('https://pokeapi.co/api/v2/pokemon/1')
+
+  return {
+    props: { 
+      pokemon: res.data,
+      initial: res2.data 
+    },
+  };
+};
+
+
+export default Home
+

@@ -1,5 +1,37 @@
-.body {
-    height: 100vh;
-    width: 100vw;
+.body {        
     background-color: #f0f0f0;
+
+    .filter_wrapper {
+        padding: 50px 0;
+
+        .pokemon_list {
+            // display: flex;
+            // align-items: center;
+            // justify-content: center;
+            column-gap: 20px;        
+            background-color: #fff;
+            border: 1px solid #333;
+            border-radius: 4px;
+            max-width: fit-content;
+            margin: 0 auto;     
+            padding: 15px;
+
+            label {
+                display: block;
+            }
+
+            select {
+                min-width: 250px;
+                height: 35px;
+                option {
+                    background-color: #fff;
+                }
+            }
+        }
+    }    
+
+    .show_selected {
+        background: #fff;
+    }
+ 
 }
