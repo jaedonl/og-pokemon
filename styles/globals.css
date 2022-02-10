@@ -5,6 +5,9 @@
   font-weight: 300;
   box-sizing: border-box;
 }
+body {
+  background-color: #f0f0f0;
+}
 
 h1, h2, h3, h4, p, span, a, button, div, ul, li {
   margin: 0;

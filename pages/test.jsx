@@ -3,11 +3,16 @@ import axios from 'axios'
 
 const fetchData = async () => {        
     const res = await axios.get('https://randomuser.me/api/?results=20')           
+    console.log(res.data.results);
     return res.data.results
 }
 
 const flatLocations = (locations) => {
-    console.log(locations);
+    // console.log(locations);
+    const flattenedLocation = []
+    for (const location of locations) {
+        
+    }
 }
 
 const test = () => {
@@ -15,24 +20,19 @@ const test = () => {
     const [flattenedLocations, setFlattenLocations] = useState([])
 
     useEffect(() => { 
-        // fetchData().then(apiPeople => {
-        //     setPeople(apiPeople)
-        //     setFlattenLocations(
-        //         flatLocations(apiPeople.map(({location}) => location)))
-        // })
+        fetchData().then(apiPeople => {
+            setPeople(apiPeople)
+            setFlattenLocations(
+                flatLocations(apiPeople.map(({location}) => location)))
+        })
 
         const fetchDatas = async () => {
             const apiPeople = await fetchData()
             setPeople(apiPeople)
             setFlattenLocations(
-                // flatLocations(apiPeople.map(({location}) => {
-                //     return location
-                // }))
-                flatLocations(
-                    apiPeople.map(({location}) => {
-                        return location
-                    }
-                ))
+                flatLocations(apiPeople.map(({location}) => {
+                    return location
+                }))
             )
         }
         fetchDatas()
