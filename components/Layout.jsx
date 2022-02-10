@@ -7,7 +7,7 @@ const Layout = ({children}) => {
     <div className={styles.template}>
       <Header/>
       {children}
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 };
