@@ -8,12 +8,13 @@ const fetchData = async () => {
 }
 
 const flatLocations = (locations) => {
-    // console.log(locations);
+    console.log(locations);
     const flattenedLocation = []
     for (const location of locations) {
         
     }
 }
+
 
 const test = () => {
     const [people, setPeople] = useState([])
@@ -30,9 +31,7 @@ const test = () => {
             const apiPeople = await fetchData()
             setPeople(apiPeople)
             setFlattenLocations(
-                flatLocations(apiPeople.map(({location}) => {
-                    return location
-                }))
+                flatLocations(apiPeople.map(({location}) => location))
             )
         }
         fetchDatas()
