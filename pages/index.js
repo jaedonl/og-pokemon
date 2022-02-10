@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.scss'
 import Body from '../components/Body'
 import axios from 'axios'
 
-const Home = ({pokemon, initial}) => {
+const Home = ({pokemon}) => {
   return (
     <div className={styles.home}>
       <Head>
@@ -14,19 +14,17 @@ const Home = ({pokemon, initial}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Body pokemon={pokemon} initial={initial} />
+      <Body pokemon={pokemon} />
     </div>
   )  
 }
 
 export const getServerSideProps = async () => {
-  const res =     await axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=50')
-  const res2 = await axios.get('https://pokeapi.co/api/v2/pokemon/1')
+  const res = await axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=200')
 
   return {
     props: { 
       pokemon: res.data,
-      initial: res2.data 
     },
   };
 };

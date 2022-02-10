@@ -1,37 +1,57 @@
 .body {        
     background-color: #f0f0f0;
 
-    .filter_wrapper {
+    .page_wrapper {
         padding: 50px 0;
-
-        .pokemon_list {
-            // display: flex;
-            // align-items: center;
-            // justify-content: center;
+        max-width: 300px;
+        margin: 0 auto;
+        .pokemon_list {            
             column-gap: 20px;        
-            background-color: #fff;
+            background-color: rgba(209, 232, 243, .25);
             border: 1px solid #333;
             border-radius: 4px;
-            max-width: fit-content;
-            margin: 0 auto;     
             padding: 15px;
 
             label {
                 display: block;
             }
-
             select {
-                min-width: 250px;
+                width: 100%;
                 height: 35px;
-                option {
-                    background-color: #fff;
-                }
+                padding: 0 5px;
             }
         }
     }    
 
     .show_selected {
-        background: #fff;
+        width: 100%;
+
+        .pokemon_card {
+            margin: 25px 0;
+            img {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(187, 230, 228, .25);
+                border: 1px solid;
+                margin-top: 15px;
+            }
+        }
+    }
+
+    .nextPrev_button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 25px;
+        margin-top: 15px;
+
+        button {
+            background-color: rgb(164, 164, 221);
+            color: #fff;
+            width: 100%;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
     }
  
 }

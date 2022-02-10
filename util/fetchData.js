@@ -1,33 +1,20 @@
 import axios from "axios";
-import { useEffect, useState } from 'react';
 
-const useFetch = (url) => { // url = 'https://pokeapi.co/api/v2/pokemon'
-    const [loading, setLoading] = useState(false);
-    const [pokemon, setPokemon] = useState(null);
-    const [serverError, setServerError] = useState(null);
+export async function getPokemonList() {
+  const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=200');  
+  return res.data
+} 
 
-    useEffect(() => {
-        setLoading(true);
+export async function getPokemonName(userInput) {
+  const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${userInput}`);  
+  return res.data
+} 
 
-        const fetchData = async () => {
-            try {
-              const res = await axios.get(url);            
-              
-              console.log(res.data.results);
-              setPokemon(res.data.results);
-              setLoading(false);
+export async function getPokemonDetail(userInput) {
+  const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${userInput}`);  
+  return res.data
+} 
 
-            } catch (error) {
-              setServerError(error);
-              setLoading(false);
-            }
-        };
-    
-        fetchData();
-    }, [url]);
-
-    return { loading, pokemon, serverError };    
-}
-
-export default useFetch
-
+export function getPokeImageUrl(userInput) {
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${userInput}.png`
+} 
