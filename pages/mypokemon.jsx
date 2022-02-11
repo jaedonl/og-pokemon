@@ -5,7 +5,7 @@ import Card from '../components/Card'
 import { getPokemonDetail } from '../util/fetchData';
 
 const mypokemon = ({myPokemon}) => {
-  
+  console.log(myPokemon);
   return (
     <div className={styles.myPokemon}>
       {myPokemon.map(singlePokemon => (

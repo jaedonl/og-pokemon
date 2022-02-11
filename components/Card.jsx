@@ -10,7 +10,7 @@ const Card = ({info}) => {
         setIsLoading(true)
         info ? setIsLoading(false) : ''        
 
-        // console.log(info);
+        console.log(info);
     }, [info])
     
     const addToList = (e) => {

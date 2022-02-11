@@ -22,6 +22,6 @@ const PokemonSchema = new mongoose.Schema(
     weight: { type: Number },  
   },
   { timestamps: true }
-);
+); 
 
 export default mongoose.models.Pokemon || mongoose.model("Pokemon", PokemonSchema);
