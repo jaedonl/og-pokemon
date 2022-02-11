@@ -4,11 +4,10 @@ import axios from 'axios'
 import Card from './Card';
 import { getPokemonDetail } from '../util/fetchData';
 
-const Body = ({pokemon}) => {  
+const Body = ({pokemon, myPokemon}) => {  
   const [curPokemon, setCurPokemon] = useState();
   const [selectIdx, setSelectIdx] = useState(1);
-  const [pokeInfo, setPokeInfo] = useState(null)
-  
+  const [pokeInfo, setPokeInfo] = useState(null)    
   
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -39,6 +38,11 @@ const Body = ({pokemon}) => {
   
   return (
     <div className={styles.body}>
+      <div className={styles.mylist_link}>
+        <div className={styles.bar}></div>
+        <h2>My Pokemon</h2>
+      </div>
+      
       <div className={styles.page_wrapper}>
         <div className={styles.pokemon_list}>          
           <label id="demo-simple-select-label">Pokemon</label>

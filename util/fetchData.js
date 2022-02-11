@@ -5,11 +5,6 @@ export async function getPokemonList() {
   return res.data
 } 
 
-export async function getPokemonName(userInput) {
-  const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${userInput}`);  
-  return res.data
-} 
-
 export async function getPokemonDetail(userInput) {
   const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${userInput}`);  
   return res.data

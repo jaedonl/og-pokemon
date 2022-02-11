@@ -1,0 +1,17 @@
+.myPokemon {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;    
+    justify-content: space-between;
+    padding: 0 50px;
+    column-gap: 25px;
+    row-gap: 25px;
+    max-width: 1000px;
+    margin: 50px auto;
+
+    .pokeCard {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+
+    }
+}

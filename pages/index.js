@@ -1,11 +1,9 @@
-import { useEffect } from 'react';
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import Body from '../components/Body'
 import axios from 'axios'
 
-const Home = ({pokemon}) => {
+const Home = ({pokemon, myPokemon}) => {
   return (
     <div className={styles.home}>
       <Head>
@@ -15,16 +13,18 @@ const Home = ({pokemon}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Body pokemon={pokemon} />
+      <Body pokemon={pokemon} myPokemon={myPokemon} />
     </div>
   )  
 }
 
 export const getServerSideProps = async () => {
   const res = await axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=200')
+  const res2 = await axios.get('http://localhost:3000/api/mypokemon')
 
   return {
     props: { 
+      myPokemon: res2.data,
       pokemon: res.data,
     },
   };

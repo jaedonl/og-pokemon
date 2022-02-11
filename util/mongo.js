@@ -1,10 +1,12 @@
 import mongoose from 'mongoose'
 
-const MONGO_ATLAS_URL = process.env.MONGO_ATLAS_URL
+// const MONGO_ATLAS_URL = process.env.MONGO_ATLAS_URL
+// const MONGO_URL = 'mongodb://localhost:27017/learning-mongo'
+const MONGO_URL = process.env.MONGO_URL
 
-if (!MONGO_ATLAS_URL) {
+if (!MONGO_URL) {
   throw new Error(
-    'Please define the MONGO_ATLAS_URL environment variable inside .env.local'
+    'Please define the MONGO_URL environment variable inside .env.local'
   )
 }
 
@@ -29,7 +31,7 @@ async function dbConnect() {
       bufferCommands: false,
     }
 
-    cached.promise = mongoose.connect(MONGO_ATLAS_URL, opts).then((mongoose) => {
+    cached.promise = mongoose.connect(MONGO_URL, opts).then((mongoose) => {
       return mongoose
     })
   }

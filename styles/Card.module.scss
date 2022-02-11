@@ -1,0 +1,85 @@
+.show_selected {
+    width: 100%;
+
+    .pokemon_card {
+        margin: 25px 0;
+        .pokemon_name {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            background: linear-gradient(to right bottom, #c3c3e6, #a4a4dd, #a4a4dd);
+            padding: 5px 10px;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            h1 {
+                text-transform: capitalize;
+                font-weight: 400;
+                color: #fff;
+            }
+            span {
+                text-transform: lowercase;
+                font-size: 18px;
+                font-weight: 500;
+                text-align: right;
+                color: #fff;
+            }
+        }
+        .image_wrapper {
+            position: relative;
+            button {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                padding: 5px 5px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                background: #fff;
+                color: hotpink;                    
+                cursor: pointer;
+                transition: all .2s ease;
+
+                &:hover {
+                    background-color: hotpink;
+                    color: #fff;
+                }
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                background-color: rgba(187, 230, 228, .25);
+                border: 1px solid #ccc;           
+                border-bottom: none; 
+            }
+        }            
+
+        .pokemon_info_wrapper {
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            .pokemon_info {
+                display: grid;                
+                grid-template-columns: 1fr 1fr 1fr;
+                justify-content: space-between;
+                column-gap: 5px;
+                h4 { font-weight: 600;}
+                p, span { font-size: 14px; display: block; text-decoration: underline; line-height: 1.6;}
+
+                .info_section {
+                    width: auto;
+                }
+                .statRow {
+                    display: flex;
+                    column-gap: 5px;
+                    span {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+    }
+}
