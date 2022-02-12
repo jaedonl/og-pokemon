@@ -4,8 +4,7 @@ import axios from 'axios'
 import Card from './Card';
 import { getPokemonDetail } from '../util/fetchData';
 
-const Body = ({pokemon, myPokemon}) => {  
-  const [curPokemon, setCurPokemon] = useState();
+const Body = ({pokemon}) => {  
   const [selectIdx, setSelectIdx] = useState(1);
   const [pokeInfo, setPokeInfo] = useState(null)    
   
@@ -13,8 +12,6 @@ const Body = ({pokemon, myPokemon}) => {
     const fetchPokemon = async () => {
       const getPoke = await getPokemonDetail(selectIdx)  
       setPokeInfo(getPoke)
-      // setCurPokemon(getPoke.name)
-      setCurPokemon(pokemon.results[selectIdx-1].name)
     }
     fetchPokemon()    
   }, [selectIdx])
@@ -22,14 +19,12 @@ const Body = ({pokemon, myPokemon}) => {
   const prevNext = (e) => {
     if (e.target.getAttribute('name') === 'prev') {
       if (selectIdx === 1) {
-        setCurPokemon(pokemon.results[pokemon.results.length-1].name)
         setSelectIdx(pokemon.results.length)     
       } else setSelectIdx(selectIdx -1)      
     } 
 
     else if (e.target.getAttribute('name') === 'next') {
       if (selectIdx === pokemon.results.length) {
-        setCurPokemon(pokemon.results[0].name)
         setSelectIdx(1)   
       } else setSelectIdx(selectIdx +1)   
     }
@@ -61,7 +56,7 @@ const Body = ({pokemon, myPokemon}) => {
         </div>
 
 
-        <Card name={curPokemon} index={selectIdx} info={pokeInfo}/>
+        <Card info={pokeInfo}/>
 
         <div className={styles.nextPrev_button}>
           <button name="prev" onClick={prevNext}>Prev</button>

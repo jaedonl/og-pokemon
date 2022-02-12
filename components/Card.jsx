@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { getPokeImageUrl } from "../util/fetchData";
 import styles from '../styles/Card.module.scss'
 import axios from 'axios'
 

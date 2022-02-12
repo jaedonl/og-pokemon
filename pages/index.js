@@ -20,11 +20,9 @@ const Home = ({pokemon, myPokemon}) => {
 
 export const getServerSideProps = async () => {
   const res = await axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=200')
-  const res2 = await axios.get('http://localhost:3000/api/mypokemon')
 
   return {
     props: { 
-      myPokemon: res2.data,
       pokemon: res.data,
     },
   };
