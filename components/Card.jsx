@@ -13,6 +13,7 @@ const Card = ({info}) => {
         console.log(info);
     }, [info])
     
+    
     const addToList = (e) => {
         e.preventDefault()
         try {
@@ -21,6 +22,10 @@ const Card = ({info}) => {
         } catch(err) {
             console.log(err)
         }
+    }
+
+    const removeFromList = (e) => {
+
     }
 
     return (        
@@ -34,19 +39,35 @@ const Card = ({info}) => {
                         <span>no.{info.order}</span> 
                     </div>
                     <div className={styles.image_wrapper}>
-                        <button onClick={addToList}>Add to Pokeball</button>
-                        {/* <img src={getPokeImageUrl(index)} alt="" />       */}
+                        <button onClick={addToList}>Add to Pokeball</button>                        
                         <img src={info.sprites.front_default} alt="" />      
                     </div>
                     <div className={styles.pokemon_info_wrapper}>
             
                             <div className={styles.pokemon_info}>
 
-                                <div className={styles.info_section}>
-                                    <h4>Types</h4>
-                                    {info.types.map((element, idx) => (
-                                        <p>{element.type.name}</p>
-                                    ))}
+                                <div className={` ${styles.info_section} ${styles.section_left} `}>
+                                    <div>
+                                        <h4>Types</h4>
+                                        {info.types.map((element, idx) => (
+                                            <p>{idx +1}. {element.type.name}</p>
+                                        ))}
+                                    </div>
+                                    
+                                    <div>
+                                        <h4>Height</h4>
+                                        <p>{info.height}</p>
+                                    </div>
+
+                                    <div>
+                                        <h4>Weight</h4>
+                                        <p>{info.weight}</p>
+                                    </div>
+
+                                    <div>
+                                        <h4>Base Exp.</h4>
+                                        <p>{info.base_experience}</p>
+                                    </div>
                                 </div>
 
                                 <div className={styles.info_section}>

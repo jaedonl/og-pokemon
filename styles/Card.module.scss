@@ -65,11 +65,17 @@
                 grid-template-columns: 1fr 1fr 1fr;
                 justify-content: space-between;
                 column-gap: 5px;
-                h4 { font-weight: 600;}
-                p, span { font-size: 14px; display: block; text-decoration: underline; line-height: 1.6;}
+                h4 { font-weight: 600; text-decoration: underline;}
+                p, span { font-size: 14px; display: block; line-height: 1.6;}
 
                 .info_section {
                     width: auto;
+
+                    &.section_left {
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 5px;
+                    }
                 }
                 .statRow {
                     display: flex;
