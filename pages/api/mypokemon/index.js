@@ -1,5 +1,5 @@
-import dbConnect from '../../util/mongo'
-import Pokemon from '../../models/Pokemon'
+import dbConnect from '../../../util/mongo'
+import Pokemon from '../../../models/Pokemon'
 
 export default async function handler(req, res) {
   const {method} = req
